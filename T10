@@ -1,0 +1,6 @@
+ if(keyPressed==true){
+    rocketY=rocketY-5;
+  }
+    if(keyPressed==false){
+    rocketY=rocketY+4;
+  }
