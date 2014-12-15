@@ -1,0 +1,10 @@
+int time;
+int score;
+
+void draw(){
+  time=time+1;
+  
+  if(time==120){
+    score=0;
+  }
+}
