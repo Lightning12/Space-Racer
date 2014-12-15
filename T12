@@ -1,0 +1,4 @@
+if(rocket>=asteroidX && rocket>=asteroidY){
+  image(rocket,rocketX1,rocketY1);
+}
+  
