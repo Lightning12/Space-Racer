@@ -1,0 +1,9 @@
+PImage bg;
+void setup(){
+  size(600,600);
+  bg=loadImage("bg1.png");
+  
+}
+void draw(){
+  background(bg);
+  }
