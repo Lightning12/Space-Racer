@@ -1,0 +1,12 @@
+PImage meteorito;
+int x=50;
+int y=50;
+
+void setup(){
+size(600,600);
+meteorito = loadImage("meteorito.png");
+}
+
+void draw(){
+image(meteorito,x,y,20,20);
+}
