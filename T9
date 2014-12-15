@@ -1,0 +1,12 @@
+PImage Rocket;
+int x=50;
+int y=50;
+
+void setup(){
+size(600,600);
+Rocket = loadImage("RocketInkscape.png");
+}
+
+void draw(){
+image(Rocket,x,y,30,50);
+}
