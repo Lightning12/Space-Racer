@@ -1,0 +1,92 @@
+PImage bg;
+PImage asteroid;
+PImage rocket;
+
+int asteroidX;
+int asteroidX1=600;
+int asteroidY;
+int asteroidY1;
+int asteroidY2;
+int asteroidY3;
+int asteroidY4;
+int asteroidY5;
+int asteroidY6;
+int rocketX=300;
+int rocketY=600;
+int score=0;
+
+void setup(){
+  size(600,683);
+  bg=loadImage("Background.png");
+  asteroid=loadImage("meteorito.png");
+  rocket=loadImage("RocketInkscape.png");
+  asteroidY=int(random(0,600));
+}
+
+void draw(){
+  background(bg);
+  image(asteroid,asteroidX,asteroidY,20,20);
+  image(rocket,rocketX,rocketY,40,60);
+  image(asteroid,asteroidX,asteroidY1,20,20);
+  image(asteroid,asteroidX1,asteroidY2,20,20);
+  image(asteroid,asteroidX1,asteroidY3,20,20);
+  image(asteroid,asteroidX1,asteroidY4,20,20);
+  image(asteroid,asteroidX,asteroidY,20,20);
+  fill(255,255,0);
+  stroke(255,255,0);
+  textSize(40);
+  text(score,570,595);
+  
+  asteroidX=asteroidX+3;
+  asteroidX1=asteroidX1-3;
+  
+  if(keyPressed==true){
+    rocketY=rocketY-5;
+  }
+  
+  if(keyPressed==false){
+      rocketY=rocketY+3;
+  }
+  if(rocketY<5){
+    score=score+1;
+    rocketY=600;
+  }
+  
+  if(asteroidX==600){
+    asteroidY=int(random(0,600));
+    asteroidY1=int(random(0,500));
+    asteroidY2=int(random(0,400));
+    asteroidY3=int(random(0,300));
+    asteroidY4=int(random(0,200));
+    asteroidX=0;
+  }
+  if(rocketY>600){
+    rocketY=600;
+  }
+  if(asteroidX1==0){
+    asteroidY3=int(random(0,600));
+    asteroidY2=int(random(0,600));
+    asteroidY4=int(random(0,600));
+    asteroidX1=600;
+  }
+   if(keyPressed==true && rocketX>asteroidX-20 && rocketX<asteroidX+20 && rocketY>asteroidY5-20 && rocketY<asteroidY5+20){
+    rocketY=600;
+  }
+     if(keyPressed==true && rocketX>asteroidX-20 && rocketX<asteroidX+20 && rocketY>asteroidY4-20 && rocketY<asteroidY4+20){
+    rocketY=600;
+  }
+  if(keyPressed==true && rocketX>asteroidX-20 && rocketX<asteroidX+20 && rocketY>asteroidY3-20 && rocketY<asteroidY3+20){
+    rocketY=600;
+  }
+  if(keyPressed==true && rocketX>asteroidX-20 && rocketX<asteroidX+20 && rocketY>asteroidY2-20 && rocketY<asteroidY2+20){
+    rocketY=600;
+  }
+  if(keyPressed==true && rocketX>asteroidX-20 && rocketX<asteroidX+20 && rocketY>asteroidY-20 && rocketY<asteroidY+20){
+    rocketY=600;
+  }
+  if(keyPressed==true && rocketX>asteroidX-20 && rocketX<asteroidX+20 && rocketY>asteroidY1-20 && rocketY<asteroidY1+20){
+    rocketY=600;
+  }
+  
+  
+}
