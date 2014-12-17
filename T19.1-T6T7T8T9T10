@@ -1,0 +1,44 @@
+PImage bg;
+PImage asteroid;
+PImage rocket;
+
+int asteroidX;
+int asteroidY;
+int rocketX=300;
+int rocketY=600;
+int score=0;
+
+void setup(){
+  size(600,683);
+  bg=loadImage("Background.png");
+  asteroid=loadImage("meteorito.png");
+  rocket=loadImage("RocketInkscape.png");
+  asteroidY=int(random(0,600));
+}
+
+void draw(){
+  background(bg);
+  image(asteroid,asteroidX,asteroidY,20,20);
+  image(rocket,rocketX,rocketY,40,60);
+  text(score,595,595);
+  
+  asteroidX=asteroidX+1;
+  
+  if(keyPressed==true){
+    rocketY=rocketY-5;
+  }
+  
+  if(keyPressed==false){
+    rocketY=rocketY+4;
+  }
+  
+  if(rocketY<5){
+    score=score+1;
+    rocketY=600;
+  }
+  
+  if(asteroidX==600){
+    asteroidY=int(random(0,600));
+    asteroidX=0;
+  }
+}
