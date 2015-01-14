@@ -1,0 +1,217 @@
+PImage bg;
+PImage asteroid;
+PImage rocket;
+
+
+float asteroidX1=0;
+float asteroidX2=0;
+float asteroidX3=0;
+float asteroidX4=0;
+float asteroidX5=0;
+float asteroidX6=0;
+float asteroidX7=0;
+float asteroidX8=600;
+float asteroidX9=600;
+float asteroidX10=600;
+float asteroidX11=600;
+float asteroidX12=600;
+float asteroidX13=600;
+float asteroidX14=600;
+float asteroidY1=1;
+float asteroidY2=36;
+float asteroidY3=71;
+float asteroidY4=102;
+float asteroidY5=137;
+float asteroidY6=172;
+float asteroidY7=207;
+float asteroidY8=242;
+float asteroidY9=277;
+float asteroidY10=312;
+float asteroidY11=347;
+float asteroidY12=382;
+float asteroidY13=417;
+float asteroidY14=452;
+
+int time=0;
+int level=1;
+int rocketX=300;
+int rocketY=600;
+int score=0;
+
+void setup(){
+  size(600,683);
+  bg=loadImage("bg.png");
+  asteroid=loadImage("meteorito.png");
+  rocket=loadImage("rocket.png");
+
+}
+
+void draw(){
+  background(bg);
+  println(time);
+  time++;
+  if(time<3600){
+    text("Easy Level",395,500);  
+  }
+  if(time>=3600){
+    text("Hard Level",395,500);
+  }
+  if(time>5400){
+    background(0);
+    textSize(40);
+    fill(255,0,0);
+    noStroke();
+    text("GAME OVER",200,300);
+  }
+  if(score<10 && time>=3600){
+     background(0);
+    textSize(40);
+    fill(255,0,0);
+    noStroke();
+    text("GAME OVER",200,300);
+  }
+  if(score<30 && time>=5399){
+     background(0);
+    textSize(40);
+    fill(255,0,0);
+    noStroke();
+    text("GAME OVER",200,300);
+  }
+  image(rocket,rocketX,rocketY,40,60);
+  image(asteroid,asteroidX1,asteroidY1,20,20);
+  image(asteroid,asteroidX2,asteroidY2,20,20);
+  image(asteroid,asteroidX3,asteroidY3,20,20);
+  image(asteroid,asteroidX4,asteroidY4,20,20);
+  image(asteroid,asteroidX5,asteroidY5,20,20);
+  image(asteroid,asteroidX6,asteroidY6,20,20);
+  image(asteroid,asteroidX7,asteroidY7,20,20);
+  image(asteroid,asteroidX8,asteroidY8,20,20);
+  image(asteroid,asteroidX9,asteroidY9,20,20);
+  image(asteroid,asteroidX10,asteroidY10,20,20);
+  image(asteroid,asteroidX11,asteroidY11,20,20);
+  image(asteroid,asteroidX12,asteroidY12,20,20);
+  image(asteroid,asteroidX13,asteroidY13,20,20);
+  image(asteroid,asteroidX14,asteroidY14,20,20);
+  fill(255,255,0);
+  stroke(255,255,0);
+  textSize(40);
+  text(score,500,595);
+  
+  asteroidX1=asteroidX1+2;
+  asteroidX2=asteroidX2+3;
+  asteroidX3=asteroidX3+4;
+  asteroidX4=asteroidX4+5;
+  asteroidX5=asteroidX5+7;
+  asteroidX6=asteroidX6+6;
+  asteroidX7=asteroidX7+8;
+  asteroidX8=asteroidX8-2;
+  asteroidX9=asteroidX9-3;
+  asteroidX10=asteroidX10-4;
+  asteroidX11=asteroidX11-5;
+  asteroidX12=asteroidX12-6;
+  asteroidX13=asteroidX13-7;
+  asteroidX14=asteroidX14-8;
+  if(keyPressed==true){
+    rocketY=rocketY-5;
+  }
+  
+  if(keyPressed==false){
+      rocketY=rocketY+3;
+  }
+  if(rocketY<5){
+    score=score+1;
+    rocketY=600;
+  }
+  
+  if(asteroidX1==600){
+   asteroidX1=0;
+   
+  }
+  if(asteroidX2==600){
+   asteroidX2=0;
+  }
+  if(asteroidX3==600){
+   asteroidX3=0;
+  }
+  if(asteroidX4==600){
+   asteroidX4=0;
+  }
+  if(asteroidX5==600){
+   asteroidX5=0;
+  }
+  if(asteroidX6==600){
+   asteroidX6=0;
+  }
+  if(asteroidX7==600){ 
+   asteroidX7=0;
+  }
+  if(asteroidX8==0){
+    asteroidX8=600;
+  }
+  if(asteroidX9==0){
+    asteroidX9=600;
+  }
+  if(asteroidX10==0){
+    asteroidX10=600;
+  }
+  if(asteroidX11==0){
+    asteroidX11=600;
+  }
+  if(asteroidX12==0){
+    asteroidX12=600;
+  }
+  if(asteroidX13==0){
+    asteroidX13=600;
+  }
+  if(asteroidX14==0){
+    asteroidX14=600;
+  }
+ 
+ if(rocketY>=600){
+   rocketY=600;
+ }
+  
+   if(rocketX>asteroidX1-10 && rocketX<asteroidX1+10 && rocketY>asteroidY1-10 && rocketY<asteroidY1+10){
+    rocketY=600;
+  }
+     if(rocketX>asteroidX2-10 && rocketX<asteroidX2+10 && rocketY>asteroidY2-10 && rocketY<asteroidY2+10){
+    rocketY=600;
+  }
+  if(rocketX>asteroidX3-10 && rocketX<asteroidX3+10 && rocketY>asteroidY3-10 && rocketY<asteroidY3+10){
+    rocketY=600;
+  }
+  if(rocketX>asteroidX4-10 && rocketX<asteroidX4+10 && rocketY>asteroidY4-10 && rocketY<asteroidY4+10){
+    rocketY=600;
+  }
+  if(rocketX>asteroidX5-10 && rocketX<asteroidX5+10 && rocketY>asteroidY5-10 && rocketY<asteroidY5+10){
+    rocketY=600;
+  }
+  if(rocketX>asteroidX6-10 && rocketX<asteroidX6+10 && rocketY>asteroidY6-10 && rocketY<asteroidY6+10){
+    rocketY=600;
+  }
+  if(rocketX>asteroidX7-10 && rocketX<asteroidX7+10 && rocketY>asteroidY7-10 && rocketY<asteroidY7+10){
+    rocketY=600;
+  }
+  if(rocketX>asteroidX8-10 && rocketX<asteroidX8+10 && rocketY>asteroidY8-10 && rocketY<asteroidY8+10){
+    rocketY=600;
+  }
+  if(rocketX>asteroidX9-10 && rocketX<asteroidX9+10 && rocketY>asteroidY9-10 && rocketY<asteroidY9+10){
+    rocketY=600;
+  }
+  if(rocketX>asteroidX10-10 && rocketX<asteroidX10+10 && rocketY>asteroidY10-10 && rocketY<asteroidY10+10){
+    rocketY=600;
+  }
+  if(rocketX>asteroidX11-10 && rocketX<asteroidX11+10 && rocketY>asteroidY11-10 && rocketY<asteroidY11+10){
+    rocketY=600;
+  }
+  if(rocketX>asteroidX12-10 && rocketX<asteroidX12+10 && rocketY>asteroidY12-10 && rocketY<asteroidY12+10){
+    rocketY=600;
+  }
+  if(rocketX>asteroidX13-10 && rocketX<asteroidX13+10 && rocketY>asteroidY13-10 && rocketY<asteroidY13+10){
+    rocketY=600;
+  }
+  if(rocketX>asteroidX14-10 && rocketX<asteroidX14+10 && rocketY>asteroidY14-10 && rocketY<asteroidY14+10){
+    rocketY=600;
+  }
+}
+
